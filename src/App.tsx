@@ -180,6 +180,12 @@ export default function App() {
   const handleScrollToStaff = () => {
     document.getElementById('staff-section')?.scrollIntoView({ behavior: 'smooth' });
   };
+  const handleScrollToPeriod = () => {
+    document.getElementById('period-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  const handleScrollToShift = () => {
+    document.getElementById('shift-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   const periodDays =
     periodStart && periodEnd ? getDatesInRange(periodStart, periodEnd).length : 0;
@@ -189,6 +195,8 @@ export default function App() {
   return (
     <Layout
       onAddStaff={handleScrollToStaff}
+      onScrollToPeriod={handleScrollToPeriod}
+      onScrollToShift={handleScrollToShift}
       onRandomGenerate={handleRandomGenerate}
       staffCount={staff.length}
       periodDays={periodDays}
@@ -215,7 +223,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className="mt-6">
+      <div id="period-section" className="mt-6">
         <PeriodSelect
           periodStart={periodStart}
           periodEnd={periodEnd}
@@ -223,7 +231,7 @@ export default function App() {
         />
       </div>
 
-      <div className="mt-6">
+      <div id="shift-section" className="mt-6">
         <ShiftGrid
           staff={staff}
           slots={slots}

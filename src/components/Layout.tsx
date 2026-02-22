@@ -4,6 +4,8 @@ import type { ReactNode } from 'react';
 type Props = {
   children: ReactNode;
   onAddStaff: () => void;
+  onScrollToPeriod?: () => void;
+  onScrollToShift?: () => void;
   onRandomGenerate: () => void;
   staffCount: number;
   periodDays: number;
@@ -14,6 +16,8 @@ type Props = {
 export function Layout({
   children,
   onAddStaff,
+  onScrollToPeriod,
+  onScrollToShift,
   onRandomGenerate,
   staffCount,
   periodDays,
@@ -58,30 +62,39 @@ export function Layout({
               </button>
             )}
           </div>
-          {sidebarOpen && (
-            <>
-              <button
-                type="button"
-                onClick={onAddStaff}
-                className="flex items-center justify-center gap-2 rounded-xl bg-violet-600 py-3 text-sm font-medium text-white shadow-sm transition hover:bg-violet-500"
-              >
-                <span className="text-lg leading-none">+</span>
-                スタッフを追加
-              </button>
-            </>
-          )}
         </div>
         {sidebarOpen && (
           <nav className="flex-1 px-3 py-2" aria-label="メイン">
             <ul className="space-y-0.5">
               <li>
-                <a
-                  href="#"
-                  className="flex items-center gap-3 rounded-lg bg-violet-50 px-3 py-2.5 text-sm font-medium text-violet-700"
+                <button
+                  type="button"
+                  onClick={onAddStaff}
+                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
+                >
+                  <span className="text-slate-400">👤</span>
+                  スタッフを追加
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onScrollToPeriod?.()}
+                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
+                >
+                  <span className="text-slate-400">📆</span>
+                  対象期間
+                </button>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={() => onScrollToShift?.()}
+                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
                 >
                   <span className="text-slate-400">📅</span>
                   シフト表
-                </a>
+                </button>
               </li>
             </ul>
           </nav>

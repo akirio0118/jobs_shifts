@@ -1,6 +1,5 @@
 import * as XLSX from 'xlsx';
 import { format } from 'date-fns';
-import { ja } from 'date-fns/locale';
 import type { Staff, Assignment, TimeSlot } from '../types/shift';
 import { getCalendarGridData } from './calendarNotation';
 
