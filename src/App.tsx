@@ -197,7 +197,6 @@ export default function App() {
       onAddStaff={handleScrollToStaff}
       onScrollToPeriod={handleScrollToPeriod}
       onScrollToShift={handleScrollToShift}
-      onRandomGenerate={handleRandomGenerate}
       staffCount={staff.length}
       periodDays={periodDays}
       assignmentCount={assignmentCount}

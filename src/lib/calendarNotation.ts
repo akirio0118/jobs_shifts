@@ -84,12 +84,10 @@ export function getCalendarGridData(
       return;
     }
     const slot = slots.find((s) => s.id === a.slotId);
-    if (!slot) return;
+    const start = a.startOverride ?? slot?.start ?? '09:00';
+    const end = a.endOverride ?? slot?.end ?? '17:00';
     const list = assignmentByKey.get(key) ?? [];
-    list.push({
-      start: a.startOverride ?? slot.start,
-      end: a.endOverride ?? slot.end,
-    });
+    list.push({ start, end });
     assignmentByKey.set(key, list);
   });
 

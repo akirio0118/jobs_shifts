@@ -6,7 +6,6 @@ type Props = {
   onAddStaff: () => void;
   onScrollToPeriod?: () => void;
   onScrollToShift?: () => void;
-  onRandomGenerate: () => void;
   staffCount: number;
   periodDays: number;
   assignmentCount: number;
@@ -18,7 +17,6 @@ export function Layout({
   onAddStaff,
   onScrollToPeriod,
   onScrollToShift,
-  onRandomGenerate,
   staffCount,
   periodDays,
   assignmentCount,
@@ -64,40 +62,57 @@ export function Layout({
           </div>
         </div>
         {sidebarOpen && (
-          <nav className="flex-1 px-3 py-2" aria-label="メイン">
-            <ul className="space-y-0.5">
-              <li>
-                <button
-                  type="button"
-                  onClick={onAddStaff}
-                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
-                >
-                  <span className="text-slate-400">👤</span>
-                  スタッフを追加
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onScrollToPeriod?.()}
-                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
-                >
-                  <span className="text-slate-400">📆</span>
-                  対象期間
-                </button>
-              </li>
-              <li>
-                <button
-                  type="button"
-                  onClick={() => onScrollToShift?.()}
-                  className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
-                >
-                  <span className="text-slate-400">📅</span>
-                  シフト表
-                </button>
-              </li>
-            </ul>
-          </nav>
+          <>
+            <nav className="flex-1 px-3 py-2" aria-label="メイン">
+              <ul className="space-y-0.5">
+                <li>
+                  <button
+                    type="button"
+                    onClick={onAddStaff}
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
+                  >
+                    <span className="text-slate-400">👤</span>
+                    スタッフを追加
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => onScrollToPeriod?.()}
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
+                  >
+                    <span className="text-slate-400">📆</span>
+                    対象期間
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => onScrollToShift?.()}
+                    className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
+                  >
+                    <span className="text-slate-400">📅</span>
+                    シフト表
+                  </button>
+                </li>
+              </ul>
+            </nav>
+            <div className="border-t border-slate-100 px-3 py-3">
+              <a
+                href={
+                  import.meta.env.VITE_X_DM_URL ||
+                  import.meta.env.VITE_X_PROFILE_URL ||
+                  'https://x.com/akihirod7oa'
+                }
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-left text-sm text-slate-600 hover:bg-slate-100 hover:text-slate-800"
+              >
+                <span className="text-slate-400">💬</span>
+                フィードバック
+              </a>
+            </div>
+          </>
         )}
       </aside>
 
@@ -106,15 +121,6 @@ export function Layout({
         {/* トップバー */}
         <header className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-4 shadow-sm">
           <h1 className="text-lg font-semibold text-slate-800">シフト表 作成</h1>
-          <div className="flex items-center gap-4">
-            <button
-              type="button"
-              onClick={onRandomGenerate}
-              className="rounded-lg bg-violet-600 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-violet-500"
-            >
-              ランダム生成
-            </button>
-          </div>
         </header>
 
         <main className="p-6">
