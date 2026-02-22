@@ -9,21 +9,6 @@
 - date-fns（日付）
 - xlsx（Excel 出力）
 
-## 開発
-
-```bash
-npm install
-npm run dev
-```
-
-ブラウザで http://localhost:5173 を開いてください。
-
-## ビルド
-
-```bash
-npm run build
-```
-
 ## 機能
 
 - **勤務時間帯**: 複数時間帯を追加し開始・終了時刻を変更可能
