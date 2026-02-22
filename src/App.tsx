@@ -216,7 +216,7 @@ export default function App() {
         </p>
       </section>
 
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="flex flex-col gap-6">
         <TimeSlotsConfig slots={slots} onChange={setSlots} />
         <div id="staff-section">
           <StaffList staff={staff} onChange={setStaff} />
