@@ -215,19 +215,19 @@ export default function App() {
         </p>
       </section>
 
-      <div className="flex flex-col gap-6">
-        <TimeSlotsConfig slots={slots} onChange={setSlots} />
-        <div id="staff-section">
-          <StaffList staff={staff} onChange={setStaff} />
-        </div>
-      </div>
-
-      <div id="period-section" className="mt-6">
+      <div id="period-section" className="mb-6">
         <PeriodSelect
           periodStart={periodStart}
           periodEnd={periodEnd}
           onPeriodChange={handlePeriodChange}
         />
+      </div>
+
+      <div className="flex flex-col gap-6">
+        <TimeSlotsConfig slots={slots} onChange={setSlots} />
+        <div id="staff-section">
+          <StaffList staff={staff} onChange={setStaff} />
+        </div>
       </div>
 
       <div id="shift-section" className="mt-6">
